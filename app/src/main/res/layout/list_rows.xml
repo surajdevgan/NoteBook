@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+   <ImageView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:id="@+id/noteicon"
+       android:src="@drawable/p"
+       android:layout_alignParentTop="true"
+       android:layout_alignParentStart="true"
+       android:layout_marginStart="12dp"
+       android:layout_marginEnd="15dp"
+       />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Note Title"
+        android:id="@+id/notetitle"
+        android:layout_alignParentTop="true"
+        android:textSize="20sp"
+        android:layout_toEndOf="@+id/noteicon"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:layout_toRightOf="@+id/noteicon"
+        android:layout_marginBottom="2dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fjbjbfbjbrjbfbjbfcjbrjbcjbrjbjbjbjrbjrbjbcjrbcbjrbcjbrbcjbrjbcjrjbjcr"
+        android:layout_below="@+id/notetitle"
+        android:id="@+id/notebody"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:textSize="10sp"
+        android:layout_toEndOf="@+id/noteicon"
+        android:ellipsize="end"
+        android:layout_toRightOf="@+id/notetitle"
+        android:maxLines="1"
+
+
+
+        />
+
+</RelativeLayout>
