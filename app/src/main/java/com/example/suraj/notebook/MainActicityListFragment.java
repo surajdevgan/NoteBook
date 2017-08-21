@@ -154,8 +154,6 @@ resolver = getActivity().getContentResolver();
 
 
 
-
-
         }
         startActivity(intent);
     }
