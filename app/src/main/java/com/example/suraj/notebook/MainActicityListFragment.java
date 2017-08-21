@@ -1,7 +1,9 @@
 package com.example.suraj.notebook;
 
 
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,6 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,22 +31,63 @@ public class MainActicityListFragment extends ListFragment {  // this list fragm
 
     ArrayList<NoteBean> notes;
     NoteAdapter noteAdapter;
+    ContentResolver resolver;
+
+
+
+
 
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        notes = new ArrayList<NoteBean>();
-        notes.add(new NoteBean("This is titleddfdfdfdf", "This is the body of noteffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", NoteBean.Category.PERSONAL));
-        notes.add(new NoteBean("ass", "sfdffdfdfdfdfdfdfdfdfddfdd", NoteBean.Category.FINANCE));
-        notes.add(new NoteBean("fdfdfdf","dfdfdfdfdfdf",NoteBean.Category.TECHNICAL));
-        notes.add(new NoteBean("fdfdfdf","dfdfdfdfdfdf",NoteBean.Category.QUOTE));
+        //Calendar calendar = Calendar.getInstance();
+        //calendar.
+resolver = getActivity().getContentResolver();
+        notes = new ArrayList<>();
+       // notes.add(new NoteBean("assa","sdsdsdd",NoteBean.Category.QUOTE));
+        RetrieveNotes();
 
-        noteAdapter = new NoteAdapter(getActivity(), R.layout.list_rows, notes);
-        setListAdapter(noteAdapter);
-        registerForContextMenu(getListView()); // registering the context menu so that we can see it
-        // when anyone longPress on listViewItem onCreateContextMenu method will be called
+
+
+
+
+    }
+
+    void RetrieveNotes()
+    {
+        //1. Retrieve Data from DB
+        //2. Convert Each Record into an Object of Type NoteBean
+        //3. Put the objects into ArrayList
+
+
+        String [] projection = {Util.COLUMN_TITLE,Util.COLUMN_MESSAGE,Util.COLUMN_CATEGORY};
+
+        Cursor cursor = resolver.query(Util.NOTE_URI,projection,null,null,null);
+        if (cursor!=null) {
+
+            String t = "", m = "";
+            NoteBean.Category c;
+
+
+            while (cursor.moveToNext()) {
+                t = cursor.getString(cursor.getColumnIndex(Util.COLUMN_TITLE));
+                m = cursor.getString(cursor.getColumnIndex(Util.COLUMN_MESSAGE));
+                c = NoteBean.Category.valueOf(cursor.getString(cursor.getColumnIndex(Util.COLUMN_CATEGORY)));
+                notes.add(new NoteBean(t, m, c));
+
+            }
+        }
+
+            noteAdapter = new NoteAdapter(getActivity(), R.layout.list_rows, notes);
+            setListAdapter(noteAdapter);
+            registerForContextMenu(getListView()); // registering the context menu so that we can see it
+            // when anyone longPress on listViewItem onCreateContextMenu method will be called
+
+
+
+
 
     }
 
@@ -79,6 +123,8 @@ public class MainActicityListFragment extends ListFragment {  // this list fragm
                 // if we press edit
                 launhNoteDetails(MainActivity.FragmentToLaunch.EDIT, rowposition);
                 return true; // if we r handling the action we need to return true
+
+            case R.id.Delete:
         }
 
         return super.onContextItemSelected(item); // if we don't handling anything we need to return  ContextItemSelected
@@ -104,6 +150,9 @@ public class MainActicityListFragment extends ListFragment {  // this list fragm
             case EDIT:  // this case will open noteedit fragment
                 intent.putExtra(MainActivity.NOTE_FRAGMENT_TO_LOADD_EXTRA, MainActivity.FragmentToLaunch.EDIT);
                 break;
+
+
+
 
 
 

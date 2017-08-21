@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/nb"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/nb"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -22,13 +22,15 @@
         <activity
             android:name=".NoteDetails"
             android:label="@string/viewFragmentTitle"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
 
         <provider
             android:name=".MyContentProvider"
             android:authorities="com.example.suraj.notebook.mycontentprovider"
             android:enabled="true"
-            android:exported="true"></provider>
+            android:exported="true" />
+
+        <activity android:name=".AboutUs"></activity>
     </application>
 
 </manifest>

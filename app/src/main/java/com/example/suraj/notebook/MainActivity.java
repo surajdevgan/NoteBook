@@ -47,7 +47,10 @@ public class MainActivity extends AppCompatActivity {   // we added Add Note in 
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.About) {
+            startActivity(new Intent(this, AboutUs.class));
+
+
             return true;
         }
         else if (id==R.id.action_add_note)  // by clicking on add need menu in action bar we send the user to NoteDetail Fragment and in NoteDetail Fragment we have create case

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.example.suraj.notebook.AboutUs"
+    android:weightSum="1">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="251dp"
+        app:srcCompat="@drawable/abt"
+        android:layout_weight="0.06" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Use Notebook to save your notes" />
+
+
+</LinearLayout>

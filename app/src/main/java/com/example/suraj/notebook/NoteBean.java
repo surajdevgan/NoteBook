@@ -1,19 +1,26 @@
 package com.example.suraj.notebook;
 
 
-public class NoteBean {
+import java.io.Serializable;
+
+public class NoteBean implements Serializable
+{
 
     String NoteTitle, NoteBody;
     Category category;
-    long noteId, dateCreated;
+    long noteId;
     long datecreted;
     int image;
+
+    public NoteBean() {
+
+    }
 
     public enum Category {
         PERSONAL, TECHNICAL, QUOTE, FINANCE;
     }
 
-    public NoteBean(String noteTitle, String noteBody, Category category) {
+    public NoteBean(String noteTitle, String noteBody ,Category category) {
         NoteTitle = noteTitle;
         NoteBody = noteBody;
         this.category = category;
@@ -21,22 +28,21 @@ public class NoteBean {
         this.datecreted = 0;
     }
 
-    public NoteBean(String noteTitle, String noteBody, Category category, long noteId, long dateCreated, long datecreted, int image) {
+    public NoteBean(String noteTitle, String noteBody, Category category, long noteId, long datecreted, int image) {
         NoteTitle = noteTitle;
         NoteBody = noteBody;
         this.category = category;
         this.noteId = noteId;
-        this.dateCreated = dateCreated;
         this.datecreted = datecreted;
         this.image = image;
     }
 
-    public long getDateCreated() {
-        return dateCreated;
+    public long getDatecreted() {
+        return datecreted;
     }
 
-    public void setDateCreated(long dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setDatecreted(long datecreted) {
+        this.datecreted = datecreted;
     }
 
     public String getNoteTitle() {
@@ -71,13 +77,6 @@ public class NoteBean {
         this.noteId = noteId;
     }
 
-    public long getDatecreted() {
-        return datecreted;
-    }
-
-    public void setDatecreted(long datecreted) {
-        this.datecreted = datecreted;
-    }
 
     public int getImage() {
         return image;
@@ -95,7 +94,6 @@ public class NoteBean {
                 ", NoteBody='" + NoteBody + '\'' +
                 ", category=" + category +
                 ", noteId=" + noteId +
-                ", dateCreated=" + dateCreated +
                 ", datecreted=" + datecreted +
                 ", image=" + image +
                 '}';

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EEFF41"
     android:padding="10dp"
     tools:context="com.example.suraj.notebook.NoteEditFragment">
     
@@ -62,6 +63,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/savenote"
         android:text="save note"
+        android:background="#F44336"
+        android:textColor="#EEFF41"
+        android:textSize="15sp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/messagescrollview"

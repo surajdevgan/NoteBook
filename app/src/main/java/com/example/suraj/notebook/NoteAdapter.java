@@ -23,7 +23,7 @@ import java.util.List;
 public class NoteAdapter  extends ArrayAdapter<NoteBean>
  {
      public static class ViewHolder {   // inner class  //  this is for optimization purpose  (this inner class is optional))
-         // bt this we don't need to create references again and again so its save memory
+         // by this we don't need to create references again and again so its save memory
          TextView title;
          TextView note;
          ImageView noteicon;
@@ -40,6 +40,7 @@ public class NoteAdapter  extends ArrayAdapter<NoteBean>
          this.resource = resource;
          this.noteslist = noteslist;
      }
+
 
 
      @Override

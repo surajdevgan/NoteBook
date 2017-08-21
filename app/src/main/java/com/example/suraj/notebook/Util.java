@@ -33,8 +33,9 @@ public class Util {
             "_id integer primary key autoincrement," +
             "title varchar(256)," +
             "message varchar(230),"+
-            "category integer not null," +
-            COLUMN_DATE + ")";
+            "category text not null," +
+            "date" + ")";
+
 
 
 public static final Uri NOTE_URI = Uri.parse("content://com.example.suraj.notebook.mycontentprovider/"+TAB_NAME);
